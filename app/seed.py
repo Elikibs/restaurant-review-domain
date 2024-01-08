@@ -45,10 +45,17 @@ if __name__== "__main__":
     reviews = []
     for restaurant in restaurants:
         for i in range(random.randint(1,3)):
+            customer = random.choice(customers)
+            if restaurant not in customer.restaurants:
+                customer.restaurants.append(restaurant)
+                session.add(customer)
+                session.commit()
+
             review = Review(
                 rating = random.randint(1, 5),
                 comment = fake.sentence(),
-                restaurant_id = restaurant.id, 
+                restaurant_id = restaurant.id,
+                customer_id = customer.id,
             )
 
             reviews.append(review)
