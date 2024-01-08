@@ -8,3 +8,18 @@ convention = {
 metadata = MetaData(naming_convention=convention)
 
 Base = declarative_base(metadata=metadata)
+
+class Restaurant(Base):
+    # defining table name
+    __tablename__='restaurants'
+
+    # defining table attributes
+    id = Column(Integer(), primary_key=True)
+    name = Column(String())
+    price = Column(Integer())
+
+    # customizing the '__repr__() method to return a human readable output
+    def __repr__(self):
+        return f"Restaurant(id={self.id}," + \
+            f"name={self.name}, " + \
+            f"price={self.price})"
