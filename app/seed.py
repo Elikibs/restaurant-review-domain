@@ -5,7 +5,7 @@ import random
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from models import Restaurant, Review, Customer
+from models import Restaurant, Review, Customer, restaurant_customer
 
 if __name__== "__main__":
     engine = create_engine('sqlite:///restaurants.db')
@@ -15,6 +15,7 @@ if __name__== "__main__":
     session.query(Restaurant).delete()
     session.query(Review).delete()
     session.query(Customer).delete()
+    session.query(restaurant_customer).delete()
 
     fake = Faker()
 
