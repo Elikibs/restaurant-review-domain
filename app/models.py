@@ -13,7 +13,7 @@ class Restaurant(Base):
     # defining table name
     __tablename__='restaurants'
 
-    # defining table attributes
+    # defining restaurants table attributes
     id = Column(Integer(), primary_key=True)
     name = Column(String())
     price = Column(Integer())
@@ -23,3 +23,19 @@ class Restaurant(Base):
         return f"Restaurant(id={self.id}," + \
             f"name={self.name}, " + \
             f"price={self.price})"
+    
+class Review(Base):
+    # defining table name
+    __tablename__='reviews'
+
+    # defining reviews table attributes
+    id = Column(Integer(), primary_key=True)
+    rating = Column(Integer())
+    comment = Column(Integer())
+
+    #  customizing the '__repr__() method to return a human readable output
+    def __repr__(self) -> str:
+        return f"Review(id={self.id}, " + \
+            f"rating={self.rating}, " + \
+            f"comment={self.comment})"
+    
