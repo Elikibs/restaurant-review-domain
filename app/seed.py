@@ -21,8 +21,8 @@ if __name__== "__main__":
     restaurants = []
     for i in range(50):
         restaurant = Restaurant(
-            name = fake.unique.name(),
-            price = random.random(100, 500),
+            name = fake.company(),
+            price = random.randint(100, 500),
         )
         # add and commit to session, individually to get their IDs back
         session.add(restaurant)
@@ -33,8 +33,8 @@ if __name__== "__main__":
     customers = []
     for i in range(25):
         customer = Customer(
-            first_name = fake.name(),
-            second_name = fake.name(),
+            first_name = fake.first_name(),
+            second_name = fake.last_name(),
         )
         # add and commit to session, individually to get their IDs back
         session.add(customer)
@@ -47,7 +47,8 @@ if __name__== "__main__":
         for i in range(random.randint(1,3)):
             review = Review(
                 rating = random.randint(1, 5),
-                comment = fake.sentence()
+                comment = fake.sentence(),
+                restaurant_id = restaurant.id, 
             )
 
             reviews.append(review)
