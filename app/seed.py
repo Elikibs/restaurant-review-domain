@@ -40,7 +40,7 @@ if __name__== "__main__":
     
     reviews = []
     for restaurant in restaurants:
-        for i in range(random.randint(1,5)):
+        for i in range(random.randint(1,3)):
             review = Review(
                 rating = random.randint(1, 5),
                 comment = fake.sentence()
