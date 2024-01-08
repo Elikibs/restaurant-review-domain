@@ -18,13 +18,23 @@ if __name__== "__main__":
     for i in range(50):
         restaurant = Restaurant(
             name = fake.unique.name(),
-            price = random.random(100, 500)
+            price = random.random(100, 500),
         )
-
         # add and commit to session, individually to get their IDs back
         session.add(restaurant)
         session.commit()
 
         restaurants.append(restaurant)
 
+    customers = []
+    for i in range(25):
+        customer = Customer(
+            first_name = fake.name(),
+            second_name = fake.name(),
+        )
+        # add and commit to session, individually to get their IDs back
+        session.add(customer)
+        session.commit()
+
+        customers.append(customer)
     
