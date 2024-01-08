@@ -33,9 +33,23 @@ class Review(Base):
     rating = Column(Integer())
     comment = Column(Integer())
 
-    #  customizing the '__repr__() method to return a human readable output
+    # customizing the '__repr__() method to return a human readable output
     def __repr__(self) -> str:
         return f"Review(id={self.id}, " + \
             f"rating={self.rating}, " + \
             f"comment={self.comment})"
-    
+
+class Customer(Base):
+    # defining table name
+    __tablename__='customers'
+
+    # defining customers table attributes
+    id = Column(Integer(), primary_key=True)
+    first_name = Column(String())
+    second_name = Column(String())
+
+     # customizing the '__repr__() method to return a human readable output
+    def __repr__(self) -> str:
+        return f"Customer(id={self.id}, " + \
+            f"first_name={self.first_name}, " + \
+            f"second_name={self.second_name})"
